@@ -1,0 +1,20 @@
+$regfile = "m328pdef.dat"
+$crystal = 16000000
+$hwstack = 32
+$swstack = 10
+$framesize = 40
+$baud = 9600
+Enable Interrupts
+Enable INT1
+On INT1 INTERRUP_EXT
+Config INT1 = Low Level
+DDRB.1 =1
+PORTB.1=0
+Do
+Loop
+End
+INTERRUP_EXT:
+   PORTB.1=1
+   Wait 1
+   PORTB.1=0
+Return
